@@ -1,8 +1,3 @@
-"""Single-file version of the user-provided 8.5-second map racing controller.
-Combines wall_follow_core, map_racing_core, and map_racing_node.
-The standalone wall_follow_node was a separate entrypoint, not used by map racer.
-"""
-
 import json
 import math
 import os
@@ -19,7 +14,6 @@ from std_msgs.msg import Float32, Int32
 
 
 
-# From wall_follow_core(1).py
 @dataclass
 class Config:
     wall_side: str = 'right'
@@ -142,7 +136,6 @@ class WallFollower:
 
 
 
-# From map_racing_core(1).py
 def clamp(value, low, high):
     return max(low, min(high, value))
 
@@ -293,7 +286,6 @@ class PathFollower:
 
 
 
-# From map_racing_node(1).py
 class MapRacingNode(Node):
     def __init__(self):
         super().__init__("map_racing_node")
